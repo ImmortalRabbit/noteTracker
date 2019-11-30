@@ -5,7 +5,7 @@
         </div>
 
         <div class="panel panel-default">
-            <div class="panel-heading">Create new note</div>
+            <div class="panel-heading">Edit note</div>
             <div class="panel-body">
                 <form v-on:submit="saveForm()">
                         <div class="col-xs-12 form-group">
@@ -14,24 +14,21 @@
                         </div>
                         <div class="col-xs-12 form-group">
                             <label class="control-label">Text</label>
-                            <textarea type="text" v-model="note.text" name="editor-containor" class="form-control"></textarea>
+                            <tinymce-editor v-model="note.text" api-key="hnirpybcyxg50gn2me6z4bvuef7pdfb1dycxpcah9lai4lae" :init="{plugins: 'wordcount'}"></tinymce-editor>
                         </div>
                         <div class="col-xs-12 form-group">
-                            <button class="btn btn-success">Create</button>
+                            <button class="btn btn-success">Save</button>
                         </div>
                 </form>
             </div>
         </div>
     </div>
 </template>
-<script src="https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
-<script>
-    CKEDITOR.replace( 'editor-containor' );
-</script>
 
 <script>
     export default {
         mounted() {
+
             let app = this;
             let id = app.$route.params.id;
             app.noteId = id;

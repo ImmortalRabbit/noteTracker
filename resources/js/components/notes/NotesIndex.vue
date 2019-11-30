@@ -17,8 +17,8 @@
                     </thead>
                     <tbody>
                     <tr v-for="(note, index) in notes">
-                        <td>{{ note.title }}</td>
-                        <td>{{ note.text }}</td>
+                        <td v-html="note.title"></td>
+                        <td v-html="note.text"></td>
                         <td>
                             <router-link :to="{name: 'editNote', params: {id: note.id}}" class="btn btn-xs btn-default">
                                 Edit
